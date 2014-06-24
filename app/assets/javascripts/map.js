@@ -3,5 +3,5 @@
 function jsAddBasicMap(strId){
 	//alert("Hello from " + strId + "!");
 	handler = Gmaps.build('Google');
-	handler.buildMap({ internal: {id: "map" }});
+	handler.buildMap({ internal: {id: strId }});
 }
