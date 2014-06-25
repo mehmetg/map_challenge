@@ -2,8 +2,3 @@
 <p>Find me in app/views/map/index.html.erb</p>
 <div id="map"></div>
 <%= javascript_tag("jsAddBasicMap('map');") %>
-<
-%= form_tag home_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import CSV" %>
-<% end %>
