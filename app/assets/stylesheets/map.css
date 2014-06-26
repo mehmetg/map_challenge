@@ -2,8 +2,8 @@
       html { height: 100% }
       body { height: 100%; margin: 1; padding: 1 }
       #map {
-		width: 500px;
-		height: 400px;
+		width: 800px;
+		height: 500px;
 		background-color: #CCC;
 		}
 </style>
