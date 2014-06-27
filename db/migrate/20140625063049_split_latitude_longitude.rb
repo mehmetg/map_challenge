@@ -1,23 +1,22 @@
 class SplitLatitudeLongitude < ActiveRecord::Migration
   def up
-  	change_table :public_bicycle_parking_locations do |t|
-  		t.float "COL_LATITUDE" 
-  		t.float "COL_LONGITUDE"
-  	end
+    add_column :public_bicycle_parking_locations, :COL_LATITUDE, :float
+  	add_column :public_bicycle_parking_locations, :COL_LONGITUDE, :float
 
   	PublicBicycleParkingLocation.all.each do |row|
   		begin
+        #parses lat, lng from coordinate string.
   			llPair = row.COL_COORDINATES.scan(/[-|+|\.]?\d+[\.]\d+/)
   		rescue 
-  			#handles malformed string that should not parse into float
-  			#should be more specific but doesn't hurt as is.
-  			#puts row.COL_LOCATION
-  		ensure
-  			llPair = [0,0]
-  		end
-  		row.COL_LATITUDE = llPair[0].to_f
-  		row.COL_LONGITUDE = llPair[1].to_f
-  		row.save
+  			#handles exception sets coordinates to 0,0
+        put "Exception!"
+        llPair = [0,0]
+      end
+        #update table with new values.
+        row.update_attribute(:COL_LATITUDE, llPair[0].to_f)
+        row.update_attribute(:COL_LONGITUDE, llPair[1].to_f)
+        #puts @llPair[0].to_f
+        #puts @llPair[1].to_f
   	end
   end
 

@@ -5,8 +5,11 @@ class ImportPublicBicycleParkingLocations < ActiveRecord::Migration
     	dbrowHash =  row.to_hash
     	#Add the COL_ prefix to legalize the table column names!
     	dbrowHash.keys.each{ |k| dbrowHash["COL_"+k] = dbrowHash[k]; dbrowHash.delete(k)}
-    	PublicBicycleParkingLocation.create!(dbrowHash)
-  	end
+    	#adds to DB if the location listed had coordinates.
+      if !dbrowHash["COL_COORDINATES"].nil?
+        PublicBicycleParkingLocation.create!(dbrowHash)
+  	  end 
+    end
   end
 
   def down
