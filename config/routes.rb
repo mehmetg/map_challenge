@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  #for debug use only.
+  #for debug use only. JS app will 
   get 'info_view/index'
   #sets root folder.
   root "map#index"

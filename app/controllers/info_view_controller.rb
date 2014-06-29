@@ -1,7 +1,11 @@
+# Controls the flow of the individual parkint location information.
+# This is fed to the js app through a jquery call.
 class InfoViewController < ApplicationController
-	layout false  
-	def index
-		#get columns that we need to display.
+	#simple html creation does not need the layout with all the references.
+	layout false
+
+	# Get columns that we need to display for parking information.
+	def index		
 		@locationHash = PublicBicycleParkingLocation.find(params[:id]).attributes
 		#make column names pretty and ignore the ones we do not need.
 		#may be done more efficiently, but column size is small and not likely to grow.
