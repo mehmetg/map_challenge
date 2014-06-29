@@ -1,9 +1,10 @@
 <style type="text/css">
       html { height: 100% }
-      body { height: 100%; margin: 1; padding: 1 }
+      body { height: 100%; margin: 1; padding: 1; background-color: #A9D0F5;}
       #map {
-		width: 800px;
-		height: 500px;
-		background-color: #CCC;
+		width: 1000px;
+		height: 700px;
+		background-color: #FFF;
+		line-height:normal;
 		}
 </style>

@@ -2,3 +2,20 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+<style type="text/css">
+	html { height: 100% }
+	body { height: 100%; margin: 1; padding: 1 }
+	td {
+		max-width:200px;
+		width:auto;
+		min-width:50px;
+		font-size:70%;
+	}
+	p{
+		font-size:70%;
+	}
+	 #infoWindow {
+		width:auto;
+		height:auto;
+		}
+</style>
