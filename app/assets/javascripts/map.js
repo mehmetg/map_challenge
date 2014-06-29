@@ -2,10 +2,10 @@
 // All this logic will automatically be available in application.js.
 function jsAddBasicMap(strId, jsonData){
 	//dummy location
-	var myLatlng = new google.maps.LatLng(0, 0);
+	var myLatlng = new google.maps.LatLng(37.775, -122.418333333333);
 	//options for my map
 	var myMapOptions = {
-        zoom: 10,
+        zoom: 12,
         center: myLatlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }
@@ -23,10 +23,13 @@ function jsAddBasicMap(strId, jsonData){
 	//Go through the json data and creating markers.
 	for(i=0; i < jsonData.length; i++)
 	{
+		if((jsonData[i].lat == null) || (jsonData[i].lng == null))
+			continue
 		//goes through json data and adds markers per location.
+
 		var marker = new google.maps.Marker({
 	        position: new google.maps.LatLng(jsonData[i].lat, jsonData[i].lng),
-	        map: map,
+	        map: map
 	        //title: "html"
 	      });
 		//adding id info for loading parking info.
@@ -64,14 +67,18 @@ function jsAddBasicMap(strId, jsonData){
 		markers.push(marker);
 
 	}
-	//clusterer options.
-	var mcOptions = {gridSize: 35, maxZoom: 15};
-	//create clusterer
-	var mc = new MarkerClusterer(map, [], mcOptions);
-	//add markers to the clusterer
-	mc.addMarkers(markers, true);
-	//fit map to the bounds.
-	map.fitBounds(bounds);
+	//if there are no markers no need to execute the following lines
+	if(markers.length > 0)
+	{
+		//clusterer options.
+		var mcOptions = {gridSize: 35, maxZoom: 15};
+		//create clusterer
+		var mc = new MarkerClusterer(map, [], mcOptions);
+		//add markers to the clusterer
+		mc.addMarkers(markers, true);
+		//fit map to the bounds.
+		map.fitBounds(bounds);
+	}
 	
 };
 
