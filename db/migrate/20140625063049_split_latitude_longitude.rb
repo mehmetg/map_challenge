@@ -15,8 +15,9 @@ class SplitLatitudeLongitude < ActiveRecord::Migration
         #update table with new values.
         row.update_attribute(:COL_LATITUDE, llPair[0].to_f)
         row.update_attribute(:COL_LONGITUDE, llPair[1].to_f)
-        #puts @llPair[0].to_f
-        #puts @llPair[1].to_f
+        row.save
+        #puts llPair[0].to_f
+        #puts llPair[1].to_f
   	end
   end
 
