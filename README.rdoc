@@ -1,9 +1,11 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application assumes to have ruby and rails on your system and also assumes internet connectivity.
 
-Things you may want to cover:
+To install/run:
+1) rake db:migrate
+2) rail s
+3) In your browser go to http://localhost:3000
 
 * Ruby version
 	ruby 2.1.2p95 (2014-05-08 revision 45877) [x86_64-darwin13.0]
