@@ -1,8 +1,12 @@
 class SplitLatitudeLongitude < ActiveRecord::Migration
+  # Add columns.
+  # This is probably not needed, but long term may be useful.
   def up
+    #Add needed columns
     add_column :public_bicycle_parking_locations, :COL_LATITUDE, :float
   	add_column :public_bicycle_parking_locations, :COL_LONGITUDE, :float
-
+    PublicBicycleParkingLocation.reset_column_information
+    
   	PublicBicycleParkingLocation.all.each do |row|
   		begin
         #parses lat, lng from coordinate string.
