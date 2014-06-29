@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+  
+  #for debug use only.
   get 'info_view/index'
+  #sets root folder.
   root "map#index"
 
   # The priority is based upon order of creation: first created -> highest priority.

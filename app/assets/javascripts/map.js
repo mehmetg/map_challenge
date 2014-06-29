@@ -18,7 +18,7 @@ function jsAddBasicMap(strId, jsonData){
 	//Blank info window 
 	//With a slight workaround to the resizing issue when we're 
 	//building the first ever infowindow
-	var infoWin = new google.maps.InfoWindow({ content: "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>" });
+	var infoWin = new google.maps.InfoWindow({ content: "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>" });
 
 	//Go through the json data and creating markers.
 	for(i=0; i < jsonData.length; i++)
